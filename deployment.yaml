@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: deerghanshu11
+  name: dscloudaction
 spec:
   selector:
     matchLabels:
-      app: deerghanshu11-pod
+      app: dscloudaction-pod
   template:
     metadata:
       labels:
-        app: deerghanshu11-pod
+        app: dscloudaction-pod
     spec:
       containers:
-      - name: deerghanshu11-container
-        image: cloudnativeacr01.azurecr.io/deerghanshu11:v1
+      - name: dscloudaction-container
+        image: cloudnativeacr01.azurecr.io/dscloudaction:latest
         resources:
           limits:
             memory: "128Mi"
