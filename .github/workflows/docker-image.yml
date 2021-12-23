@@ -15,7 +15,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag cloudnativeacr01.azurecr.io/deerghanshu11:latest
+      run: docker build . --file Dockerfile --tag cloudnativeacr01.azurecr.io/dscloudaction:latest
      
     - name: Azure Container Registry Login
       uses: Azure/docker-login@v1
@@ -28,7 +28,7 @@ jobs:
         login-server: cloudnativeacr01.azurecr.io
         
     - name: Push Image  
-      run: docker push cloudnativeacr01.azurecr.io/deerghanshu11:latest
+      run: docker push cloudnativeacr01.azurecr.io/dscloudaction:latest
       
   deploy:
     runs-on: ubuntu-latest
