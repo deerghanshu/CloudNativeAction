@@ -9,16 +9,16 @@ USER appuser
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0-focal AS build
 WORKDIR /src
-COPY ["cloudnative.csproj", "./"]
-RUN dotnet restore "cloudnative.csproj"
+COPY ["CloudNativeAction.csproj", "./"]
+RUN dotnet restore "CloudNativeAction.csproj"
 COPY . .
 WORKDIR "/src/."
-RUN dotnet build "cloudnative.csproj" -c Release -o /app/build
+RUN dotnet build "CloudNativeAction.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "cloudnative.csproj" -c Release -o /app/publish
+RUN dotnet publish "CloudNativeAction.csproj" -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "cloudnative.dll"]
+ENTRYPOINT ["dotnet", "CloudNativeAction.dll"]
